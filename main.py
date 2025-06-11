@@ -28,6 +28,7 @@ class TRF4_Crawler:
             self._sb = sb
             sb.set_window_size(1600, 811)
             primeiraInstanciaEncontrada = False
+            print("Iniciando consulta no TRF4...")
             for tIndex, tribunal in enumerate(tribunais):
                 if tIndex == 0:
                     sb.activate_cdp_mode(url)
@@ -61,6 +62,7 @@ class TRF4_Crawler:
                     x = captchaRect["x"] + (captchaRect["height"] / 2)
                     y = captchaRect["y"] + (captchaRect["height"] / 3)
                     # sb.cdp.gui_click_element("div.cf-turnstile")
+                    print("Clicando no captcha...")
                     sb.cdp.gui_click_x_y(x, y)
                     sb.sleep(4)
                     sb.reconnect()
@@ -75,6 +77,7 @@ class TRF4_Crawler:
                 sb.disconnect()
                 print("Disconnecting...")
                 try:
+                    print("Procurando titulo pag")
                     sb.cdp.wait_for_element_visible("span.tituloPagina", timeout=20)
                 except Exception as e:
                     if "not found" in str(e):
@@ -93,6 +96,7 @@ class TRF4_Crawler:
                 # ------------ Clicar em links para exibir mais informações ------------
                 primeiraInstanciaEncontrada = True
                 try:
+                    print("Clicando no link para exibir mais informações")
                     sb.cdp.select("html").querySelector("a[title*='todas as partes']").click()
                     sb.sleep(5)
                     sb.cdp.wait_for_element_visible("span.tituloPagina", timeout=20)
