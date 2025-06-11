@@ -1,5 +1,5 @@
 # Workflow file for github actions
-name: Run tests (ubuntu)
+name: Run tests (Windows)
 
 on:
   workflow_dispatch:
