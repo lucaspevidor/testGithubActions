@@ -59,9 +59,12 @@ jobs:
       - name: Run tests
         run: |
           pytest tests/sumAssertion.py
-      - name: Run app
+      # - name: Run app
+      #   run: |
+      #     python main.py --debug
+      - name: Run RawCF.py
         run: |
-          python main.py --debug
+          python raw_cf.py
       - name: Upload screenshots
         if: always()
         uses: actions/upload-artifact@v4
