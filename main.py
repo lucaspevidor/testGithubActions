@@ -68,6 +68,7 @@ class TRF4_Crawler:
                     sb.sleep(4)
                     sb.reconnect()
                     print("Captcha solved, reconnecting...")
+                    sb.cdp.save_screenshot("screenshots/captcha_solved.png")
                     exit()
                     sb.cdp.click("input[name=sbmContinuar]")
 
