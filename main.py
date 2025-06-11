@@ -26,7 +26,7 @@ class TRF4_Crawler:
         with SB(uc=True, test=True) as sb:
             sb: BaseCase
             self._sb = sb
-            sb.set_window_size(1600, 811)
+            # sb.set_window_size(1600, 811)
             primeiraInstanciaEncontrada = False
             print("Iniciando consulta no TRF4...")
             for tIndex, tribunal in enumerate(tribunais):
@@ -64,11 +64,10 @@ class TRF4_Crawler:
                     # sb.cdp.gui_click_element("div.cf-turnstile")
                     print("Clicando no captcha...")
                     sb.cdp.save_screenshot("screenshots/captcha_to_solve.png")
-                    sb.cdp.gui_click_x_y(x, y)
+                    sb.uc_gui_click_captcha()
                     sb.sleep(4)
                     sb.reconnect()
                     print("Captcha solved, reconnecting...")
-                    sb.cdp.save_screenshot("screenshots/captcha_solved.png")
                     exit()
                     sb.cdp.click("input[name=sbmContinuar]")
 
