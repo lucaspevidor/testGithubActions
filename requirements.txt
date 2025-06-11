@@ -1,1 +1,3 @@
+markdownify
+seleniumbase
 pytest
