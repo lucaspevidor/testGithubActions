@@ -63,10 +63,13 @@ class TRF4_Crawler:
                     y = captchaRect["y"] + (captchaRect["height"] / 3)
                     # sb.cdp.gui_click_element("div.cf-turnstile")
                     print("Clicando no captcha...")
+                    sb.cdp.save_screenshot("screenshots/captcha_to_solve.png")
                     sb.cdp.gui_click_x_y(x, y)
                     sb.sleep(4)
                     sb.reconnect()
                     print("Captcha solved, reconnecting...")
+                    sb.cdp.save_screenshot("screenshots/captcha_solved.png")
+                    exit()
                     sb.cdp.click("input[name=sbmContinuar]")
 
                 sb.sleep(3)
