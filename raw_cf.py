@@ -6,8 +6,14 @@ with SB(uc=True, test=True) as sb:
     sb.activate_cdp_mode(url)
     sb.sleep(8)
     sb.save_screenshot("captcha_to_solve.png", "screenshots")
+    captchaRect = sb.cdp.get_gui_element_rect("div.cf-turnstile")
+    x = captchaRect["x"] + (captchaRect["height"] / 2) + 15
+    y = captchaRect["y"] + (captchaRect["height"] / 2) - 20
+    print(f"Captcha rect: {captchaRect}")
+    print(f"Clicking at coordinates: ({x}, {y})")
+    sb.cdp.gui_click_x_y(x, y)
     print("Clicking on the captcha...")
-    sb.uc_gui_click_captcha()
+    # sb.uc_gui_click_captcha()
     sb.save_screenshot("captcha_clicked.png", "screenshots")
     print("Captcha clicked, waiting for it to be solved...")
     # sb.assert_element("img#captcha-success", timeout=3)
