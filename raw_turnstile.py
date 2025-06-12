@@ -33,6 +33,7 @@ canvasInject = """(function injectCanvasOnWebsite() {
 
 with SB(uc=True, test=True) as sb:
     url = "https://seleniumbase.io/apps/turnstile"
+    url = "https://consulta.trf4.jus.br/trf4/controlador.php?acao=consulta_processual_valida_pesquisa&txtOrigemPesquisa=1&seq=&selForma=NU&txtValor=5039294-34.2024.4.04.7000&txtChave=&selOrigem=PR&txtDataFase=01%2F01%2F1970"
     sb.uc_open_with_reconnect(url)
     sb.save_screenshot("captcha_to_solve.png", "screenshots")
     sb.sleep(2)
