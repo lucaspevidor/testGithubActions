@@ -40,6 +40,8 @@ with SB(uc=True, test=True) as sb:
     sb.cdp.evaluate(canvasInject)
     sb.sleep(2)
     sb.cdp.save_screenshot("canvas_injected.png", "screenshots")
+    sb.reconnect()
+    print(sb.find_element("div.cf-turnstile"))
     sb.uc_gui_click_x_y(200, 400)
     sb.uc_gui_click_captcha()
     sb.cdp.save_screenshot("captcha_clicked.png", "screenshots")

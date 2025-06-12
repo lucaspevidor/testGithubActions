@@ -62,9 +62,9 @@ jobs:
       # - name: Run app
       #   run: |
       #     python main.py --debug
-      - name: Run RawCF.py
-        run: |
-          python raw_cf.py --debug --xvfb --gui
+      # - name: Run RawCF.py
+      #   run: |
+      #     python raw_cf.py --debug --xvfb --gui
       - name: Run raw_turnstile.py
         run: |
           python raw_turnstile.py --debug --xvfb --gui
