@@ -64,7 +64,7 @@ jobs:
       #     python main.py --debug
       - name: Run RawCF.py
         run: |
-          python raw_cf.py --proxy="177.157.175.245:8899"
+          python raw_cf.py --proxy="177.157.175.245:8899" --debug
       - name: Upload screenshots
         if: always()
         uses: actions/upload-artifact@v4
