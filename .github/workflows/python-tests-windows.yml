@@ -45,6 +45,19 @@ jobs:
       - name: Run tests
         run: |
           pytest tests/sumAssertion.py
-      - name: Run app
+      # - name: Run app
+      #   run: |
+      #     python main.py --debug
+      # - name: Run RawCF.py
+      #   run: |
+      #     python raw_cf.py --debug --xvfb --gui
+      - name: Run raw_turnstile-cdp.py
         run: |
-          python main.py
+          python raw_turnstile_cdp.py --debug --xvfb --gui
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seleniumbase-screenshots
+          path: |
+            ./screenshots/
