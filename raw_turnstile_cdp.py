@@ -7,4 +7,4 @@ with SB(uc=True, test=True) as sb:
     sb.assert_element("img#captcha-success", timeout=3)
     sb.set_messenger_theme(location="top_left")
     sb.post_message("SeleniumBase wasn't detected", duration=3)
-    sb.save_screenshot_to_logs()
+    sb.save_screenshot("captcha_solved.png", "screenshots")
