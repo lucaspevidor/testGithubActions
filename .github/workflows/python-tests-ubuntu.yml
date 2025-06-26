@@ -65,9 +65,9 @@ jobs:
       # - name: Run RawCF.py
       #   run: |
       #     python raw_cf.py --debug --xvfb --gui
-      - name: Run raw_turnstile.py
+      - name: Run raw_turnstile-cdp.py
         run: |
-          python raw_turnstile.py --debug --xvfb --gui
+          python raw_turnstile-cdp.py --debug --xvfb --gui
       - name: Upload screenshots
         if: always()
         uses: actions/upload-artifact@v4
